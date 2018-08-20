@@ -11,20 +11,36 @@ namespace sqlTest
         public static void Main(string[] args)
         {
 
-            MySqlConnection conn = connection();
-
-            String SQL = sqlInsert();
-
-            result(SQL, conn);
+            Console.WriteLine("choose(1.database read 2.database write)");
+            int i = Convert.ToInt32(Console.ReadLine());
+            switch (i)
+            {
+                case 1:
+                    MySqlConnection conn = connection(i);
+                    String SQL = sqlInsert();
+                    result(SQL, conn);
+                    break;
+                case 2:
+                    break;
+            }
 
         }
 
-        public static MySqlConnection connection()
+        public static MySqlConnection connection(int i)
         {
             Console.WriteLine("please insert password");
             String pass = Console.ReadLine();
-            String connString = "server=localhost;port=3306;uid=root;database=world;charset=utf8;SslMode=None;pwd=" + pass + ";";
 
+            String connString="";
+
+            if (i == 1)
+                connString = "server=localhost;port=3306;uid=root;database=world;charset=utf8;SslMode=None;pwd=" + pass + ";";
+            else if (i == 2)
+            {
+                String database = Console.ReadLine();
+                connString = "server=localhost;port=3306;uid=root;database="+database+";charset=utf8;SslMode=None;pwd=" + pass + ";";
+            }
+            
             MySqlConnection conn = new MySqlConnection(connString);
 
             try
