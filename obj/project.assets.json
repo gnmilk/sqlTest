@@ -1045,22 +1045,24 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\jh.tsai\\Desktop\\sqlTest\\sqlTest.csproj",
+      "projectUniqueName": "C:\\Users\\jh.tsai\\Desktop\\sqlTest\\sqlTest.csproj",
       "projectName": "sqlTest",
-      "projectPath": "c:\\Users\\jh.tsai\\Desktop\\sqlTest\\sqlTest.csproj",
+      "projectPath": "C:\\Users\\jh.tsai\\Desktop\\sqlTest\\sqlTest.csproj",
       "packagesPath": "C:\\Users\\jh.tsai\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\jh.tsai\\Desktop\\sqlTest\\obj\\",
+      "outputPath": "C:\\Users\\jh.tsai\\Desktop\\sqlTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\jh.tsai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\jh.tsai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
