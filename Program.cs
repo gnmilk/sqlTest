@@ -8,11 +8,8 @@ namespace sqlTest
 {
     class Program
     {
-<<<<<<< HEAD
         static String pass;
         static String table;
-=======
->>>>>>> b013fd99322e9ce1593a47f4eb7e28851303e61d
         public static void Main(string[] args)
         {
 
@@ -28,7 +25,7 @@ namespace sqlTest
                 case 1:
                     conn = connection(i);
                     String SQL = sqlInsert.sqlInsert1();
-                    result(SQL, conn);
+                    resultCmp.resultOut(SQL, conn);
                     break;
                 case 2:
                     Console.WriteLine("please insert database");
@@ -52,10 +49,6 @@ namespace sqlTest
                 String database = Console.ReadLine();
                 connString = "server=localhost;port=3306;uid=root;database=test;charset=utf8;SslMode=None;pwd=" + pass + ";";
             }
-<<<<<<< HEAD
-=======
-            
->>>>>>> b013fd99322e9ce1593a47f4eb7e28851303e61d
             MySqlConnection conn = new MySqlConnection(connString);
 
             try
@@ -82,63 +75,5 @@ namespace sqlTest
             return conn;
         }
 
-<<<<<<< HEAD
-=======
-        public static String sqlInsert()
-        {
-            Console.WriteLine("Please insert coloum");
-            String coloum = Console.ReadLine();
-
-            Console.WriteLine("Please insert table");
-            String table = Console.ReadLine();
-
-            Console.WriteLine("Please insert serach rule /*null=0");
-            String where = Console.ReadLine();
-
-
-            Console.WriteLine("Please insert sort rule /*null=0");
-            String orderBy = Console.ReadLine();
-
-
-            sqlInsertCmp sqlInsertCmp = new sqlInsertCmp();
-
-            String SQL = sqlInsertCmp.cmp(coloum, table, where, orderBy);
-
-            Console.WriteLine(SQL);
-
-            return SQL;
-        }
-
->>>>>>> b013fd99322e9ce1593a47f4eb7e28851303e61d
-        public static void result(String SQL, MySqlConnection conn)
-        {
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(SQL, conn);
-                MySqlDataReader myData = cmd.ExecuteReader();
-
-                if (!myData.HasRows)
-                {
-                    Console.WriteLine("no data");
-                }
-                else
-                {
-                    while (myData.Read())
-                    {
-                        for (int i = 0; i < myData.FieldCount; i++)
-                        {
-                            Console.Write(myData.GetName(i) + ":");
-                            Console.Write(myData[i] + ".   ");
-                        }
-                        Console.WriteLine();
-                    }
-                    myData.Close();
-                }
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                Console.WriteLine("error " + ex.Number + ": " + ex.Message);
-            }
-        }
     }
 }
