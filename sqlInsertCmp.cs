@@ -4,7 +4,7 @@ namespace sqlTest
 {
     public class sqlInsertCmp
     {
-        /*read */
+
         public static String cmp(string coloum, string table, string where, string orderBy)/*read */
         {
             String SQL = "";
@@ -24,8 +24,8 @@ namespace sqlTest
         {
             String SQL = "CREATE TABLE " + tablename + " (";
             String coloumName;
-
-            for (int i = 1; i < amount; i++)
+            int i;
+            for (i = 0; i < amount - 1; i++)
             {
                 coloumName = Console.ReadLine();
                 SQL += coloumName + " char(50),";
@@ -34,6 +34,18 @@ namespace sqlTest
             coloumName = Console.ReadLine();
             SQL += coloumName + " char(50));";
 
+            return SQL;
+        }
+
+        public static String cmp(String tablename)/*insert data */
+        {
+            String SQL="";
+            SQL += "INSERT INTO " + tablename + "(";
+
+            while ()
+            {
+                
+            }
             return SQL;
         }
     }

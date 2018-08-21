@@ -44,13 +44,15 @@ namespace sqlTest
 
             switch (i)
             {
+                /*先創建table與欄位再輸入內容 */
                 case 1:
-                    creTable(conn);/*先創建table與欄位再輸入內容 */
+                    creTable(conn);
                     insData(conn);
                     break;
 
+                /*直接輸入內容*/
                 case 2:
-                    insData(conn);/*直接輸入內容*/
+                    insData(conn);
                     break;
             }
 
@@ -67,17 +69,18 @@ namespace sqlTest
 
             SQL = sqlInsertCmp.cmp(tablename, amount);
 
+            /*輸入資料檢查*/
             Console.WriteLine(SQL);
             Console.WriteLine("data correct?/*true=continue false=try again");
             determine = Convert.ToBoolean(Console.ReadLine());
 
             switch (determine)
             {
-                case true:/*go to next*/
+                case true:/*載入輸入的 table SQL碼*/
                     resultCmp.resultIn(SQL, conn);
                     break;
                 case false:
-                    creTable(conn);/*return set coloum*/
+                    creTable(conn);/*重新創建 table*/
                     break;
             }
 
@@ -87,10 +90,9 @@ namespace sqlTest
 
         public static void insData(MySqlConnection conn)
         {
-
-
-            return SQL;
+            Console.WriteLine("please write table name");
+            String tablename = Console.ReadLine();
+            SQL=sqlInsertCmp.cmp(tablename);
         }
-
     }
 }
