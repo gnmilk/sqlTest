@@ -49,7 +49,6 @@ namespace sqlTest
                 String database = Console.ReadLine();
                 connString = "server=localhost;port=3306;uid=root;database=test;charset=utf8;SslMode=None;pwd=" + pass + ";";
             }
-
             MySqlConnection conn = new MySqlConnection(connString);
 
             try
