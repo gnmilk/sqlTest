@@ -37,15 +37,15 @@ namespace sqlTest
             return SQL;
         }
 
-        public static String cmp(String tablename)/*insert data */
+        public static String cmp(String tablename)/*insert data*/ 
         {
             String SQL="";
             SQL += "INSERT INTO " + tablename + "(";
 
-            while ()
+            /*while ()
             {
                 
-            }
+            }*/
             return SQL;
         }
     }
