@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Text;
 using System.Data;
 using MySql.Data.MySqlClient;
@@ -8,8 +9,8 @@ namespace sqlTest
 {
     class Program
     {
-        static String pass;
-        static String database;
+        static string pass;
+        static string database;
 
         static MySqlConnection conn;
         public static void Main(string[] args)
@@ -25,20 +26,20 @@ namespace sqlTest
             {
                 case 1:
                     conn = connection();
-                    
-                    String SQL = sqlInsert.sqlInsert1();
-                    
+
+                    string SQL = sqlInsert.sqlInsert1();
+
                     resultCmp.resultOut(SQL, conn);
-                    
+
                     break;
                 case 2:
                     Console.WriteLine("please insert database");
                     database = Console.ReadLine();
-                    
+
                     conn = connection2();
-                    
+
                     sqlInsert.sqlInsert2(conn);
-                    
+
                     break;
             }
 
@@ -47,7 +48,7 @@ namespace sqlTest
         public static MySqlConnection connection()
         {
 
-            String connString = "";
+            string connString = "";
 
             connString = "server=localhost;port=3306;uid=root;database=world;charset=utf8;SslMode=None;pwd=" + pass + ";";
 
@@ -79,7 +80,7 @@ namespace sqlTest
 
         public static MySqlConnection connection2()
         {
-            String connString = "";
+            string connString = "";
 
             connString = "server=localhost;port=3306;uid=root;database=" + database + ";charset=utf8;SslMode=None;pwd=" + pass + ";";
 

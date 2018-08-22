@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Text;
 using System.Data;
 using MySql.Data.MySqlClient;
@@ -9,23 +10,27 @@ namespace sqlTest
 {
     public class sqlInsert
     {
-        static String SQL;
+        static string SQL;
         static Boolean determine;/*判斷是否正確的變數*/
-        public static String sqlInsert1()/*output interface*/
+
+        static string tablename;
+
+        static ArrayList tableColumn = new ArrayList();
+        public static string sqlInsert1()/*output interface*/
         {
             Console.WriteLine("Please insert coloum");
-            String coloum = Console.ReadLine();
+            string coloum = Console.ReadLine();
 
             Console.WriteLine("Please insert table");
-            String table = Console.ReadLine();
+            string table = Console.ReadLine();
 
             Console.WriteLine("Please insert serach rule /*null=0");
 
-            String where = Console.ReadLine();
+            string where = Console.ReadLine();
 
 
             Console.WriteLine("Please insert sort rule /*null=0");
-            String orderBy = Console.ReadLine();
+            string orderBy = Console.ReadLine();
 
 
             sqlInsertCmp sqlInsertCmp = new sqlInsertCmp();
@@ -41,6 +46,9 @@ namespace sqlTest
         {
             Console.WriteLine("1.create table 2.insert data");
             int i = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("please write table name");
+            tablename = Console.ReadLine();
 
             switch (i)
             {
@@ -58,16 +66,13 @@ namespace sqlTest
 
         }
 
-        public static String creTable(MySqlConnection conn)/*create table */
+        public static string creTable(MySqlConnection conn)/*create table */
         {
-
-            Console.WriteLine("please write table name");
-            String tablename = Console.ReadLine();
 
             Console.WriteLine("please write coloum amount");
             int amount = Convert.ToInt32(Console.ReadLine());
 
-            SQL = sqlInsertCmp.cmp(tablename, amount);
+            SQL = sqlInsertCmp.cmpCreTable(tablename, amount);
 
             /*輸入資料檢查*/
             Console.WriteLine(SQL);
@@ -88,11 +93,18 @@ namespace sqlTest
 
         }
 
+        public static ArrayList catchTabColumn(MySqlConnection conn)
+        {
+            SQL = sqlInsertCmp.cmpColumnName(tablename);
+
+            Console.WriteLine("debugCodeView");
+            Console.WriteLine(SQL);
+
+            return tableColumn = resultCmp.resultConec(SQL, conn);
+        }
         public static void insData(MySqlConnection conn)
         {
-            Console.WriteLine("please write table name");
-            String tablename = Console.ReadLine();
-            SQL=sqlInsertCmp.cmp(tablename);
+            SQL = sqlInsertCmp.cmpInsData(tablename, conn);
         }
     }
 }
